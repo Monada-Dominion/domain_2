@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <em>Shin-Lap self-transformative program.</em>
+  <em>Multidimensional Meditation.</em>
 </p>
 
 ---
