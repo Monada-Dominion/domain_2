@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>domain_2</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        .card {
+            border: 1px solid #7a7a7a;;
+            text-decoration: none;
+            color: #000000;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.15);
+            width: 6.3cm;
+            height: 8.8cm;
+        }
+        .card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+        }
+        .images-wrapper {
+            background-color: #ffffff;
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+        .text-wrapper {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-image-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 5px;
+            background-color: #f0f0f0;
+            flex-grow: 0;
+            flex-shrink: 0;
+            height: 3.4cm;
+            align-items: center;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .card-image-container img {
+            width: 30%;
+            height: auto;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        .card-text {
+            padding: 0 5px 5px;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+        }
+        .card-description {
+            font-size: 1em;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <a href="initial-theory.html" class="card">
+            <div class="card-image-container">
+                <div class="images-wrapper">
+                    <img src="images/1.jpg" alt="image 1">
+                    <img src="images/1.jpg" alt="image 1">
+                    <img src="images/1.jpg" alt="image 1">
+                </div>
+            </div>
+            <div class="card-text">
+                <div class="text-wrapper">
+                    <div class="card-title">meditation_2_1_1</div>
+                    <div class="card-description">Theory: Multidimensional meditation</div>
+                </div>
+            </div>
+        </a>
+        <a href="practice.html" class="card">
+            <div class="card-image-container">
+                <div class="images-wrapper">
+                    <img src="images/1.jpg" alt="image 1">
+                    <img src="images/1.jpg" alt="image 1">
+                    <img src="images/2.jpg" alt="image 2">
+                </div>
+            </div>
+            <div class="card-text">
+                <div class="text-wrapper">
+                    <div class="card-title">meditation_2_1_2</div>
+                    <div class="card-description">Practice: The Dot & The Void</div>
+                </div>
+            </div>
+        </a>
+        <a href="reflective-questions.html" class="card">
+            <div class="card-image-container">
+                <div class="images-wrapper">
+                    <img src="images/1.jpg" alt="image 1">
+                    <img src="images/1.jpg" alt="image 1">
+                    <img src="images/3.jpg" alt="image 3">
+                </div>
+            </div>
+            <div class="card-text">
+                <div class="text-wrapper">
+                    <div class="card-title">meditation_2_1_3</div>
+                    <div class="card-description">Reflective questions</div>
+                </div>
+            </div>
+        </a>
+        <a href="new-theory.html" class="card">
+            <div class="card-image-container">
+                <div class="images-wrapper">
+                    <img src="images/1.jpg" alt="image 1">
+                    <img src="images/1.jpg" alt="image 1">
+                    <img src="images/4.jpg" alt="image 4">
+                </div>
+            </div>
+            <div class="card-text">
+                <div class="text-wrapper">
+                    <div class="card-title">meditation_2_1_4</div>
+                    <div class="card-description">Questions</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</body>
+</html> 
