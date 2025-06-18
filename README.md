@@ -13,7 +13,7 @@
 
 This repository houses Multidimensional Meditation materials for the **Monada Dominion** journey. Its purpose is to provide you with experience of different states of consciousness. The exercises and practices in this domain are designed to allow easy access to different states of focus and relaxation, complexities and depths. 
 
-## 🗺️ Initial domains of Moanda Dominion
+## 🗺️ Initial domains of Monada Dominion
 
 It is a progressive journey structured into several domains. While you can explore some parts out of order, the intended path is designed for a gradual unfolding of understanding.
 
