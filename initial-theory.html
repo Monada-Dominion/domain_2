@@ -43,6 +43,24 @@
         <a href="index.html" class="back-link">[back to menu]</a>
     </div>
     <script>
+    function markdownToHtml(md) {
+        return md
+            .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+            .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+            .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+            .replace(/^---$/gim, '<hr>')
+            .replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>')
+            .replace(/\*\*(.*?)\*\*/gim, '<b>$1</b>')
+            .replace(/\*(.*?)\*/gim, '<i>$1</i>')
+            .replace(/`([^`]+)`/gim, '<code>$1</code>')
+            .replace(/^\s*\n/gim, '<br>')
+            .replace(/^\s*\n/gim, '<br>')
+            .replace(/\n\n/gim, '<br><br>')
+            .replace(/^\s*\n/gim, '<br>')
+            .replace(/^- (.*$)/gim, '<li>$1</li>')
+            .replace(/<li>(.*?)<\/li>/gim, '<ul><li>$1</li></ul>')
+            .replace(/\n/g, '<br>');
+    }
     document.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const content = urlParams.get('content') || 'meditation_2_1_1';
@@ -53,7 +71,7 @@
             .then(data => {
                 const lines = data.split('\n');
                 header.innerText = lines[0].trim();
-                contentContainer.innerHTML = lines.slice(1).join('\n');
+                contentContainer.innerHTML = markdownToHtml(lines.slice(1).join('\n'));
             })
             .catch(error => console.error('Error loading content:', error));
     });
