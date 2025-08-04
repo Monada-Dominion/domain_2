@@ -101,5 +101,20 @@
 
         <a href="index.html" class="back-link">[back to menu]</a>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const content = urlParams.get('content');
+            if (content) {
+                fetch(`${content}.txt`)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('.container').innerText = data;
+                    })
+                    .catch(error => console.error('Error loading content:', error));
+            }
+        });
+    </script>
 </body>
-</html> 
+</html>
