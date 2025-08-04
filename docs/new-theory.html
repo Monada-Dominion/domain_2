@@ -3,37 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Initial Theory</title>
-    <style>
-        body {
-            background-color: #ffffff;
-            color: #000000;
-            font-family: 'Courier New', Courier, monospace;
-            line-height: 1.6;
-            margin: 0;
-            padding: 2em;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h2, h3 {
-            color: #333333;
-        }
-        .highlight {
-            color: #ff6666; /* ambient red */
-        }
-        .back-link {
-            display: block;
-            margin-top: 2em;
-            text-align: center;
-            color: #000000;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            color: #ff0000;
-        }
-    </style>
+    <title>New Theory</title>
+    <link rel="stylesheet" href="assets/css/theory.css">
 </head>
 <body>
     <div class="container">
@@ -63,10 +34,10 @@
     }
     document.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
-        const content = urlParams.get('content') || 'meditation_2_1_1';
+        const content = urlParams.get('content') || 'meditation_2_1_4';
         const header = document.querySelector('h2');
         const contentContainer = document.querySelector('.content');
-        fetch(`${content}.md`)
+        fetch(`assets/md/${content}.md`)
             .then(response => response.text())
             .then(data => {
                 const lines = data.split('\n');

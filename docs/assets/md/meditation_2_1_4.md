@@ -16,4 +16,3 @@ These questions must elevate your mind from an ordinary perspective and help you
 - If not, what is blocking you? And how to overcome it?
 - **What is the void?**
 - What is there beyond the void? What is there, where your attention is not present? Is there a smallest dot somewhere, or is there another moving attention?
-

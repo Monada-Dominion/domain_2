@@ -58,22 +58,4 @@ This independent unit reflects the possibility of the existence of something.
 
 Accordingly, you, as a person, exist, and you exist in an infinite boundless universe. 
 Many options and possibilities for the development of events are near and within you. 
-The fact that you exist is the realization of possibilities. There are very many of these possibilities. 
-There are many other people, and besides people, there are many animals, objects, and other forms of life.
-
-And what you represent is the realization of one of an infinite number of possibilities. 
-Therefore, try to hold on to the idea of a filled point. 
-If last time we imagined the fall and infinite division of the point as some kind of void, falling into the void, constantly searching for something smaller, 
-then at this moment, try to hold your concentration on the fact that something exists, something is present, something is in this point. 
-This is life, energy, soul, consciousness, attention, state, something that fills it, that creates the possibility of the existence of an event, the possibility of the existence of your life. 
-
-With each inhale and exhale, fill your point, your sphere, with warmth. Fill it with presence. With concentrated attention. 
-But do not forget to distance yourself so that the sphere is still a point, and as if you are looking at the surface of the planet from space. 
-You know that in some point you are yourself, but you do not see yourself. 
-You can only see some point of some color – black, green, blue, white, orange, any color. 
-
-This point is **You**. In it is your life. With each inhale and exhale, strengthen these sensations of presence in this point. 
-And try to part with your human form. Do not look at yourself as a body, do not feel yourself as a body. 
-Feel yourself as relaxed energy, gathered, concentrated in one point, which you see from afar. 
-
-> Dedicate 15 to 30 minutes to this meditation.
+The fact that you exist is the realization of possibilities. There are very many of these possibilities.

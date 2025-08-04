@@ -1,0 +1,34 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+    margin: 0;
+    padding: 2em;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+h2, h3 {
+    color: #333333;
+}
+.highlight {
+    color: #ff6666; /* ambient red */
+}
+.back-link {
+    display: block;
+    margin-top: 2em;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
+}
+.back-link:hover {
+    color: #ff0000;
+}
+ol {
+    padding-left: 2em;
+}
+li {
+    margin-bottom: 1em;
+}

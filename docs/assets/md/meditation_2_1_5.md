@@ -55,8 +55,4 @@ This contrast allows one to see the multidimensional nature of what seems to be 
 
 Nevertheless, the experience is much more complex, and its comprehension requires time and discipline.
 
-> Therefore, it is suggested to dedicate much more time to the first exercise.
-
-The more I practice this, the less desire I have to do anything else. I am inclined to believe that the point alone is sufficient. And everyone is capable of growing their own tree and building a harmonious system.
-
 The rules of the universal matrix are natural and built on the logic of least action and greatest clarity. Following this path, any practitioner is highly likely to achieve the same or similar result.

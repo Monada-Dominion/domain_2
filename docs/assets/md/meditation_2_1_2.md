@@ -23,18 +23,14 @@ Relax your back and all the muscles in your legs and arms. Relax your facial exp
 
 1. **Concentrate on the point or the dot.**
    - Close your eyes and imagine that you are falling into emptiness or the void.
-   - Induce the sensation of falling, as if you are flying down.
    - Think about when you might have jumped from a tower into the water or fell onto your bed. Imagine that you are falling and try to abandon the perception of yourself as a person outwardly.
 
 2. **Perceive yourself as a point in the void of the vast universe.**
    - Imagine that you are falling into a deep void. Somewhere, where there is nothing yet.
-   - Exhale and relax. Imagine that you are flying into the void.
-   - Apply a falling sensation to inhale. Connect your perception of yourself as a dot with the sensation of inhalation.
    - With these sensations, try to feel infinity – that infinity that is hidden inside any abstract point.
 
 3. **With each breath, decrease the point.**
    - As you inhale, decrease this point more and more with each inhalation and exhalation.
-   - Try to reduce the point and find an even smaller point internally, and let this symbolize for you a fall into emptiness.
    - You are no longer a human being, you are in the ocean of an endless universe.
 
 ---
@@ -62,12 +58,3 @@ The more scattered your attention, the wider your sphere will be – the sphere 
 - There is infinity inside each point. We can never divide a point by the final smallest point. We can always find an even smaller unit and concentrate on it. Continue to decrease the point and your concentration will take on a whole new quality.
 
 Connect this point with the feeling of relaxation, with the feeling of falling oneself like a point in the ocean of the universe. Let the symbol of the point fix in your mind along with the feeling of falling, along with the feeling of falling into emptiness.
-
-> This is the feeling of losing the perception of oneself as a human form. Your consciousness is completely taken into account. You are your attention, which is directed to a point that falls into an endless void, which has no size and which is constantly decreasing.
-
----
-
-### Conclusion
-
-This first exercise is related to the **first stage of multidimensional void-point meditation**.
-
