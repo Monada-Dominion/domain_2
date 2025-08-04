@@ -91,14 +91,16 @@
             flex-grow: 1;
         }
         .card-title {
-            font-size: 1em;
+            font-size: 0.7em; /* Make title even smaller */
             font-weight: bold;
-            margin: 0 0 8px 0;
+            margin: 0 0 4px 0;
+            white-space: pre-line; /* Allow line breaks for long titles */
         }
         .card-description {
-            font-size: 0.95em;
-            line-height: 1.3;
+            font-size: 0.8em; /* Make description even smaller */
+            line-height: 1.1;
             flex-grow: 1;
+            white-space: pre-line;
         }
     </style>
 </head>
@@ -142,7 +144,9 @@
                 const resp = await fetch(`${card.file}.md`);
                 const text = await resp.text();
                 const lines = text.split('\n');
-                const title = lines[0] || card.file;
+                // Remove leading # and whitespace from the first line
+                let title = lines[0] || card.file;
+                title = title.replace(/^#+\s*/, '');
                 const description = lines[1] || '';
                 container.appendChild(createCard(card, title, description));
             } catch (e) {
