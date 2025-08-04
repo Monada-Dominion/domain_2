@@ -103,103 +103,54 @@
     </style>
 </head>
 <body>
-    <div class="card-container">
-        <a href="initial-theory.html" class="card">
+    <div class="card-container" id="card-container"></div>
+    <script>
+    // Card configuration: file, images, target page
+    const cards = [
+        { file: 'meditation_2_1_1', images: ['2.jpg','1.jpg','1.jpg'], page: 'initial-theory.html' },
+        { file: 'meditation_2_1_2', images: ['2.jpg','1.jpg','2.jpg'], page: 'practice.html' },
+        { file: 'meditation_2_1_3', images: ['2.jpg','1.jpg','3.jpg'], page: 'reflective-questions.html' },
+        { file: 'meditation_2_1_4', images: ['2.jpg','1.jpg','4.jpg'], page: 'new-theory.html' },
+        { file: 'meditation_2_1_5', images: ['2.jpg','1.jpg','5.jpg'], page: 'initial-theory.html?content=meditation_2_1_5' },
+        { file: 'meditation_2_1_6', images: ['2.jpg','1.jpg','6.jpg'], page: 'practice.html?content=meditation_2_1_6' }
+    ];
+
+    function createCard(card, title, description) {
+        const a = document.createElement('a');
+        a.href = card.page;
+        a.className = 'card';
+        a.innerHTML = `
             <div class="card-image-container">
                 <div class="images-wrapper">
-                    <img src="images/2.jpg" alt="image 2">
-                    <img src="images/1.jpg" alt="image 1">
-                    <img src="images/1.jpg" alt="image 1">
+                    ${card.images.map(img => `<img src="images/${img}" alt="image">`).join('')}
                 </div>
             </div>
             <div class="card-text">
                 <div class="text-wrapper">
-                    <div class="card-title">meditation_2_1_1</div>
-                    <div class="card-description">Theory: Multidimensional meditation</div>
+                    <div class="card-title">${title}</div>
+                    <div class="card-description">${description}</div>
                 </div>
             </div>
-        </a>
-        <a href="practice.html" class="card">
-            <div class="card-image-container">
-                <div class="images-wrapper">
-                    <img src="images/2.jpg" alt="image 2">
-                    <img src="images/1.jpg" alt="image 1">
-                    <img src="images/2.jpg" alt="image 2">
-                </div>
-            </div>
-            <div class="card-text">
-                <div class="text-wrapper">
-                    <div class="card-title">meditation_2_1_2</div>
-                    <div class="card-description">Practice: The Dot & The Void</div>
-                </div>
-            </div>
-        </a>
-        <a href="reflective-questions.html" class="card">
-            <div class="card-image-container">
-                <div class="images-wrapper">
-                    <img src="images/2.jpg" alt="image 2">
-                    <img src="images/1.jpg" alt="image 1">
-                    <img src="images/3.jpg" alt="image 3">
-                </div>
-            </div>
-            <div class="card-text">
-                <div class="text-wrapper">
-                    <div class="card-title">meditation_2_1_3</div>
-                    <div class="card-description">Reflective questions</div>
-                </div>
-            </div>
-        </a>
-        <a href="new-theory.html" class="card">
-            <div class="card-image-container">
-                <div class="images-wrapper">
-                    <img src="images/2.jpg" alt="image 2">
-                    <img src="images/1.jpg" alt="image 1">
-                    <img src="images/4.jpg" alt="image 4">
-                </div>
-            </div>
-            <div class="card-text">
-                <div class="text-wrapper">
-                    <div class="card-title">meditation_2_1_4</div>
-                    <div class="card-description">Questions</div>
-                </div>
-            </div>
-        </a>
-        <a href="initial-theory.html?content=meditation_2_1_5" class="card">
-            <div class="card-image-container">
-                <div class="images-wrapper">
-                    <img src="images/2.jpg" alt="image 2">
-                    <img src="images/1.jpg" alt="image 1">
-                    <img src="images/5.jpg" alt="image 5">
-                </div>
-            </div>
-            <div class="card-text">
-                <div class="text-wrapper">
-                    <div class="card-title">meditation_2_1_5</div>
-                    <div class="card-description">
-                        <span class="language-switch" data-lang="en">Theory: The Point as an Independent Element</span>
-                        <span class="language-switch" data-lang="ru" style="display:none;">Теория: Точка как самостоятельный элемент</span>
-                    </div>
-                </div>
-            </div>
-        </a>
-        <a href="practice.html?content=meditation_2_1_6" class="card">
-            <div class="card-image-container">
-                <div class="images-wrapper">
-                    <img src="images/2.jpg" alt="image 2">
-                    <img src="images/1.jpg" alt="image 1">
-                    <img src="images/6.jpg" alt="image 6">
-                </div>
-            </div>
-            <div class="card-text">
-                <div class="text-wrapper">
-                    <div class="card-title">meditation_2_1_6</div>
-                    <div class="card-description">
-                        <span class="language-switch" data-lang="en">Practice: The Point as an Independent Element</span>
-                        <span class="language-switch" data-lang="ru" style="display:none;">Практика: Точка как самостоятельный элемент</span>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
+        `;
+        return a;
+    }
+
+    async function loadCards() {
+        const container = document.getElementById('card-container');
+        for (const card of cards) {
+            try {
+                const resp = await fetch(`${card.file}.txt`);
+                const text = await resp.text();
+                const lines = text.split('\n');
+                const title = lines[0] || card.file;
+                const description = lines[1] || '';
+                container.appendChild(createCard(card, title, description));
+            } catch (e) {
+                container.appendChild(createCard(card, card.file, ''));
+            }
+        }
+    }
+    loadCards();
+    </script>
 </body>
 </html>

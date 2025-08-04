@@ -38,26 +38,25 @@
 <body>
     <div class="container">
         <a href="index.html" class="back-link">[back to menu]</a>
-
-        <h2>2.1.4: Multidimensional Meditation - Questions. Dot and Void</h2>
-
-        <h3>Advanced questions</h3>
-        <p>
-            These questions must elevate your mind from ordinary perspective and help to exit logical cell. Overcome yourself with these extra questions.
-        </p>
-        
-        <ul>
-            <li>What is the dot?</li>
-            <li>What happens when you do meditation? Is it attention, mind or anything else that tries to find the smallest dot?</li>
-            <li>Are you able to clear your mind and body from any associations, visual attachments, senses or perception of the process of moving to the smallest dot?</li>
-            <li>Can you attain the state of complete unity with your meditation practice? Are you able to be one with this exercise?</li>
-            <li>Can you recognise the connection between card 1 in step 1 and card 1 in step 2? Can you achieve genuine critical thinking and successfully practice this meditation exercise?</li>
-            <li>If not, what is blocking you? And how to overcome it?</li>
-            <li>What is the void?</li>
-            <li>What is there beyond the void? What is there, where your attention is not present? Is there a smallest dot somewhere, or is there another moving attention?</li>
-        </ul>
-
+        <h2></h2>
+        <div class="content"></div>
         <a href="index.html" class="back-link">[back to menu]</a>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const content = urlParams.get('content') || 'meditation_2_1_4';
+        const header = document.querySelector('h2');
+        const contentContainer = document.querySelector('.content');
+        fetch(`${content}.txt`)
+            .then(response => response.text())
+            .then(data => {
+                const lines = data.split('\n');
+                header.innerText = lines[0].trim();
+                contentContainer.innerHTML = lines.slice(1).join('\n');
+            })
+            .catch(error => console.error('Error loading content:', error));
+    });
+    </script>
 </body>
-</html> 
+</html>

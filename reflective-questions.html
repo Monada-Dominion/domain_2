@@ -44,26 +44,25 @@
 <body>
     <div class="container">
         <a href="index.html" class="back-link">[back to menu]</a>
-
-        <h2>2.1.3: Multidimensional Meditation - Reflection. Dot and Void</h2>
-        
-        <p>Reflect on theory and practice of the first step of Multidimensional Meditation.</p>
-
-        <h3>Theory</h3>
-        <ol>
-            <li>Why are you here?</li>
-            <li>Why do meditation?</li>
-            <li>How to identify your progress or assess the direction of movement?</li>
-        </ol>
-
-        <h3>Practice</h3>
-        <ol>
-            <li>Relaxation, finding space</li>
-            <li>Do it on the go?</li>
-            <li>Is it hard to direct the mind? Or is it a relaxing moment for you?</li>
-        </ol>
-
+        <h2></h2>
+        <div class="content"></div>
         <a href="index.html" class="back-link">[back to menu]</a>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const content = urlParams.get('content') || 'meditation_2_1_3';
+        const header = document.querySelector('h2');
+        const contentContainer = document.querySelector('.content');
+        fetch(`${content}.txt`)
+            .then(response => response.text())
+            .then(data => {
+                const lines = data.split('\n');
+                header.innerText = lines[0].trim();
+                contentContainer.innerHTML = lines.slice(1).join('\n');
+            })
+            .catch(error => console.error('Error loading content:', error));
+    });
+    </script>
 </body>
-</html> 
+</html>
