@@ -139,7 +139,7 @@
         const container = document.getElementById('card-container');
         for (const card of cards) {
             try {
-                const resp = await fetch(`${card.file}.txt`);
+                const resp = await fetch(`${card.file}.md`);
                 const text = await resp.text();
                 const lines = text.split('\n');
                 const title = lines[0] || card.file;

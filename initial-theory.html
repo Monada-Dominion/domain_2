@@ -48,7 +48,7 @@
         const content = urlParams.get('content') || 'meditation_2_1_1';
         const header = document.querySelector('h2');
         const contentContainer = document.querySelector('.content');
-        fetch(`${content}.txt`)
+        fetch(`${content}.md`)
             .then(response => response.text())
             .then(data => {
                 const lines = data.split('\n');
