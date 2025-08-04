@@ -148,13 +148,27 @@
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const content = urlParams.get('content');
+            const header = document.querySelector('h2');
+            const backButton = document.querySelector('.back-link');
+
             if (content) {
                 fetch(`${content}.txt`)
                     .then(response => response.text())
                     .then(data => {
-                        document.querySelector('.content').innerText = data;
+                        const lines = data.split('\n');
+                        const dynamicHeader = lines[0].trim(); // Assume the first line is the header
+                        header.innerText = dynamicHeader;
+                        document.querySelector('.content').innerText = lines.slice(1).join('\n'); // Rest of the content
                     })
                     .catch(error => console.error('Error loading content:', error));
+            }
+
+            if (!backButton) {
+                const newBackButton = document.createElement('a');
+                newBackButton.href = 'index.html';
+                newBackButton.className = 'back-link';
+                newBackButton.innerText = '[back to menu]';
+                document.querySelector('.container').appendChild(newBackButton);
             }
         });
     </script>
