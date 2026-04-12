@@ -1,4 +1,4 @@
-# 2.2.5 Multidimensional Meditation - Practice - The Line as an Independent Element
+# 2.2.6 Multidimensional Meditation - Practice - The Line as an Independent Element
 
 This stage of multidimensional meditation is dedicated to the line as an independent element.
 
