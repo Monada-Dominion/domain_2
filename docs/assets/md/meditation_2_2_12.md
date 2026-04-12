@@ -1,4 +1,3 @@
-
 # 2.2.12 Multidimensional Meditation – Questions
 
 ## The Triangle (Angle of Displacement) — Deeper Questions

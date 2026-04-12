@@ -1,4 +1,3 @@
-
 # 2.2.10 Multidimensional Meditation – Practice – The Triangle (Angle of Displacement)
 
 This practice develops the transition from point → line → displaced line (angle) and lets you observe how the “quality of movement” changes as the line rotates between axes.

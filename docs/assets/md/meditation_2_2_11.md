@@ -1,4 +1,3 @@
-
 # 2.2.11 Multidimensional Meditation – Reflection
 
 ## The Triangle (Angle of Displacement) — Reflection
