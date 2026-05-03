@@ -1,4 +1,4 @@
-# 🧘‍♂️ Domain 2: The Line
+# Domain 2: The Line
 
 <p align="center">
   <img src="https://img.shields.io/github/last-commit/monada-dominion/domain_2?style=for-the-badge" alt="GitHub last commit">
