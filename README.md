@@ -51,11 +51,6 @@ All materials are formatted for easy reading and are accessible online through G
 
 Found a typo or have a suggestion? Contributions are welcome! Please feel free to open an issue or submit a pull request to improve the materials.
 
-## Meditation videos (in Russian)
-The very first block is ommitted - read it in the cards.
-
-Playlist: https://www.youtube.com/playlist?list=PLU8M0U4Y5BGtZRo-cKlheTlOxbQEkpMJI
-
 ## 📄 License
 
 This project is open-source. See the [LICENSE](LICENSE) file for more details.
