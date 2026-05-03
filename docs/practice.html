@@ -10,10 +10,71 @@
     <div class="container">
         <a href="index.html" class="back-link">[back to menu]</a>
         <h2></h2>
+        <div class="figure-icons" aria-label="Detected meditation figures"></div>
         <div class="content"></div>
         <a href="index.html" class="back-link">[back to menu]</a>
     </div>
     <script>
+    function figureSvg(name) {
+        const styles = 'style="display:block;width:72px;height:72px"';
+        const palette = {
+            stroke: '#101010',
+            fill: '#101010'
+        };
+
+        if (name === 'point') {
+            return `<svg ${styles} viewBox="0 0 100 100" aria-label="Point"><circle cx="50" cy="50" r="10" fill="${palette.fill}"/></svg>`;
+        }
+        if (name === 'line') {
+            return `<svg ${styles} viewBox="0 0 100 100" aria-label="Line"><line x1="12" y1="50" x2="88" y2="50" stroke="${palette.stroke}" stroke-width="6" stroke-linecap="round"/></svg>`;
+        }
+        if (name === 'triangle') {
+            return `<svg ${styles} viewBox="0 0 100 100" aria-label="Triangle"><polygon points="50,16 86,82 14,82" fill="none" stroke="${palette.stroke}" stroke-width="5"/></svg>`;
+        }
+        if (name === 'rhombus') {
+            return `<svg ${styles} viewBox="0 0 100 100" aria-label="Rhombus"><polygon points="50,12 88,50 50,88 12,50" fill="none" stroke="${palette.stroke}" stroke-width="5"/></svg>`;
+        }
+        if (name === 'square') {
+            return `<svg ${styles} viewBox="0 0 100 100" aria-label="Square"><rect x="18" y="18" width="64" height="64" fill="none" stroke="${palette.stroke}" stroke-width="5"/></svg>`;
+        }
+        if (name === 'circle') {
+            return `<svg ${styles} viewBox="0 0 100 100" aria-label="Circle"><circle cx="50" cy="50" r="32" fill="none" stroke="${palette.stroke}" stroke-width="5"/></svg>`;
+        }
+        return '';
+    }
+
+    function renderFigureIcons(text) {
+        const iconContainer = document.querySelector('.figure-icons');
+        if (!iconContainer) return;
+
+        const normalized = (text || '').toLowerCase();
+        const figureMatchers = [
+            { key: 'point', regex: /\b(point|dot)\b/g },
+            { key: 'line', regex: /\bline\b/g },
+            { key: 'triangle', regex: /\btriangle\b/g },
+            { key: 'rhombus', regex: /\b(rhombus|diamond)\b/g },
+            { key: 'square', regex: /\bsquare\b/g },
+            { key: 'circle', regex: /\bcircle\b/g }
+        ];
+
+        const found = figureMatchers
+            .filter(item => item.regex.test(normalized))
+            .map(item => item.key);
+
+        if (!found.length) {
+            iconContainer.style.display = 'none';
+            iconContainer.innerHTML = '';
+            return;
+        }
+
+        iconContainer.style.display = 'flex';
+        iconContainer.style.gap = '12px';
+        iconContainer.style.flexWrap = 'wrap';
+        iconContainer.style.alignItems = 'center';
+        iconContainer.style.margin = '6px 0 16px';
+        iconContainer.innerHTML = found.map(name => figureSvg(name)).join('');
+    }
+
     function markdownToHtml(md) {
         return md
             .replace(/^### (.*$)/gim, '<h3>$1</h3>')
@@ -42,6 +103,7 @@
             .then(data => {
                 const lines = data.split('\n');
                 header.innerText = lines[0].trim();
+                renderFigureIcons(data);
                 contentContainer.innerHTML = markdownToHtml(lines.slice(1).join('\n'));
             })
             .catch(error => console.error('Error loading content:', error));
