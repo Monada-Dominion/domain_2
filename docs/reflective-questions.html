@@ -10,55 +10,10 @@
     <div class="container">
         <a href="index.html" class="back-link">[back to menu]</a>
         <h2></h2>
-        <div class="figure-icons" aria-label="Detected meditation figures"></div>
         <div class="content"></div>
         <a href="index.html" class="back-link">[back to menu]</a>
     </div>
     <script>
-    function getFigureImageFiles(contentId) {
-        const m = /^meditation_(\d+)_(\d+)_(\d+)$/.exec(contentId || '');
-        if (!m) return [];
-
-        const domain = Number(m[1]);
-        const block = Number(m[2]);
-        const card = Number(m[3]);
-
-        if (domain !== 2) return [];
-
-        if (block === 1 && card >= 1 && card <= 8) {
-            return ['1.jpg'];
-        }
-        if (block === 1 && card >= 9 && card <= 12) {
-            return ['1.jpg', '5.jpg'];
-        }
-        if (block === 2 && card >= 1 && card <= 4) {
-            return ['5.jpg'];
-        }
-
-        return [];
-    }
-
-    function renderFigureIcons(contentId) {
-        const iconContainer = document.querySelector('.figure-icons');
-        if (!iconContainer) return;
-
-        const files = getFigureImageFiles(contentId);
-        if (!files.length) {
-            iconContainer.style.display = 'none';
-            iconContainer.innerHTML = '';
-            return;
-        }
-
-        iconContainer.style.display = 'flex';
-        iconContainer.style.gap = '12px';
-        iconContainer.style.flexWrap = 'wrap';
-        iconContainer.style.alignItems = 'center';
-        iconContainer.style.margin = '6px 0 16px';
-        iconContainer.innerHTML = files
-            .map(file => `<img src="assets/images/${file}" alt="Meditation figure" style="width:72px;height:72px;object-fit:contain;">`)
-            .join('');
-    }
-
     function markdownToHtml(md) {
         return md
             .replace(/^### (.*$)/gim, '<h3>$1</h3>')
@@ -87,7 +42,6 @@
             .then(data => {
                 const lines = data.split('\n');
                 header.innerText = lines[0].trim();
-                renderFigureIcons(content);
                 contentContainer.innerHTML = markdownToHtml(lines.slice(1).join('\n'));
             })
             .catch(error => console.error('Error loading content:', error));
