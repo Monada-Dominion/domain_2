@@ -5,46 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Initial Theory</title>
     <link rel="stylesheet" href="assets/css/theory.css">
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">[back to menu]</a>
-        <h2></h2>
-        <div class="content"></div>
-        <a href="index.html" class="back-link">[back to menu]</a>
+    <div class="page-shell content-page">
+        <nav class="site-nav" id="site-nav"></nav>
+        <div class="container">
+            <h2 class="page-title"></h2>
+            <div class="content"></div>
+        </div>
     </div>
+    <script src="assets/js/site.js"></script>
     <script>
-    function markdownToHtml(md) {
-        return md
-            .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-            .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-            .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-            .replace(/^---$/gim, '<hr>')
-            .replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>')
-            .replace(/\*\*(.*?)\*\*/gim, '<b>$1</b>')
-            .replace(/\*(.*?)\*/gim, '<i>$1</i>')
-            .replace(/`([^`]+)`/gim, '<code>$1</code>')
-            .replace(/^\s*\n/gim, '<br>')
-            .replace(/^\s*\n/gim, '<br>')
-            .replace(/\n\n/gim, '<br><br>')
-            .replace(/^\s*\n/gim, '<br>')
-            .replace(/^- (.*$)/gim, '<li>$1</li>')
-            .replace(/<li>(.*?)<\/li>/gim, '<ul><li>$1</li></ul>')
-            .replace(/\n/g, '<br>');
-    }
     document.addEventListener('DOMContentLoaded', () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const content = urlParams.get('content') || 'meditation_2_1_1';
-        const header = document.querySelector('h2');
-        const contentContainer = document.querySelector('.content');
-        fetch(`assets/md/${content}.md`)
-            .then(response => response.text())
-            .then(data => {
-                const lines = data.split('\n');
-                header.innerText = lines[0].trim();
-                contentContainer.innerHTML = markdownToHtml(lines.slice(1).join('\n'));
-            })
-            .catch(error => console.error('Error loading content:', error));
+        Domain2.renderMarkdownPage({ defaultContent: 'meditation_2_1_1' });
     });
     </script>
 </body>

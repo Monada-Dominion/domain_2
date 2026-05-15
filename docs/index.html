@@ -5,80 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>domain_2</title>
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-    <div class="card-container" id="card-container"></div>
+    <div class="page-shell">
+        <nav class="site-nav" id="site-nav"></nav>
+        <main>
+            <div class="card-container" id="card-container"></div>
+        </main>
+    </div>
+    <script src="assets/js/site.js"></script>
     <script>
-    // Card configuration: file, images, target page
-    const cards = [
-        { file: 'meditation_2_1_1', images: ['2.jpg','1.jpg','1.jpg'], page: 'initial-theory.html' },
-        { file: 'meditation_2_1_2', images: ['2.jpg','1.jpg','2.jpg'], page: 'practice.html' },
-        { file: 'meditation_2_1_3', images: ['2.jpg','1.jpg','3.jpg'], page: 'reflective-questions.html' },
-        { file: 'meditation_2_1_4', images: ['2.jpg','1.jpg','4.jpg'], page: 'new-theory.html' },
-        { file: 'meditation_2_1_5', images: ['2.jpg','1.jpg','5.jpg'], page: 'initial-theory.html?content=meditation_2_1_5' },
-        { file: 'meditation_2_1_6', images: ['2.jpg','1.jpg','6.jpg'], page: 'practice.html?content=meditation_2_1_6' },
-        { file: 'meditation_2_1_7', images: ['2.jpg','1.jpg','7.jpg'], page: 'reflective-questions.html?content=meditation_2_1_7' },
-        { file: 'meditation_2_1_8', images: ['2.jpg','1.jpg','8.jpg'], page: 'new-theory.html?content=meditation_2_1_8' },
-        { file: 'meditation_2_1_9', images: ['2.jpg','1.jpg','9.jpg'], page: 'initial-theory.html?content=meditation_2_1_9' },
-        { file: 'meditation_2_1_10', images: ['2.jpg','1.jpg','10.jpg'], page: 'practice.html?content=meditation_2_1_10' },
-        { file: 'meditation_2_1_11', images: ['2.jpg','1.jpg','11.jpg'], page: 'reflective-questions.html?content=meditation_2_1_11' },
-        { file: 'meditation_2_1_12', images: ['2.jpg','1.jpg','12.jpg'], page: 'new-theory.html?content=meditation_2_1_12' },
-        { file: 'meditation_2_2_1', images: ['2.jpg','2.jpg','1.jpg'], page: 'initial-theory.html?content=meditation_2_2_1' },
-        { file: 'meditation_2_2_2', images: ['2.jpg','2.jpg','2.jpg'], page: 'practice.html?content=meditation_2_2_2' },
-        { file: 'meditation_2_2_3', images: ['2.jpg','2.jpg','3.jpg'], page: 'reflective-questions.html?content=meditation_2_2_3' },
-        { file: 'meditation_2_2_4', images: ['2.jpg','2.jpg','4.jpg'], page: 'new-theory.html?content=meditation_2_2_4' },
-        { file: 'meditation_2_2_5', images: ['2.jpg','2.jpg','5.jpg'], page: 'initial-theory.html?content=meditation_2_2_5' },
-        { file: 'meditation_2_2_6', images: ['2.jpg','2.jpg','6.jpg'], page: 'practice.html?content=meditation_2_2_6' },
-        { file: 'meditation_2_2_7', images: ['2.jpg','2.jpg','7.jpg'], page: 'reflective-questions.html?content=meditation_2_2_7' },
-        { file: 'meditation_2_2_8', images: ['2.jpg','2.jpg','8.jpg'], page: 'new-theory.html?content=meditation_2_2_8' },
-        { file: 'meditation_2_2_9', images: ['2.jpg','2.jpg','9.jpg'], page: 'initial-theory.html?content=meditation_2_2_9' },
-        { file: 'meditation_2_2_10', images: ['2.jpg','2.jpg','10.jpg'], page: 'practice.html?content=meditation_2_2_10' },
-        { file: 'meditation_2_2_11', images: ['2.jpg','2.jpg','11.jpg'], page: 'reflective-questions.html?content=meditation_2_2_11' },
-        { file: 'meditation_2_2_12', images: ['2.jpg','2.jpg','12.jpg'], page: 'new-theory.html?content=meditation_2_2_12' },
-        { file: 'meditation_2_3_1', images: ['2.jpg','3.jpg','1.jpg'], page: 'initial-theory.html?content=meditation_2_3_1' },
-        { file: 'meditation_2_3_2', images: ['2.jpg','3.jpg','2.jpg'], page: 'practice.html?content=meditation_2_3_2' },
-        { file: 'meditation_2_3_3', images: ['2.jpg','3.jpg','3.jpg'], page: 'reflective-questions.html?content=meditation_2_3_3' },
-        { file: 'meditation_2_3_4', images: ['2.jpg','3.jpg','4.jpg'], page: 'new-theory.html?content=meditation_2_3_4' }
-    ];
-
-    function createCard(card, title, description) {
-        const a = document.createElement('a');
-        a.href = card.page;
-        a.className = 'card';
-        a.innerHTML = `
-            <div class="card-image-container">
-                <div class="images-wrapper">
-                    ${card.images.map(img => `<img src="assets/images/${img}" alt="image">`).join('')}
-                </div>
-            </div>
-            <div class="card-text">
-                <div class="text-wrapper">
-                    <div class="card-title">${title}</div>
-                    <div class="card-description">${description}</div>
-                </div>
-            </div>
-        `;
-        return a;
-    }
-
-    async function loadCards() {
-        const container = document.getElementById('card-container');
-        for (const card of cards) {
-            try {
-                const resp = await fetch(`assets/md/${card.file}.md`);
-                const text = await resp.text();
-                const lines = text.split('\n');
-                // Remove leading # and whitespace from the first line
-                let title = lines[0] || card.file;
-                title = title.replace(/^#+\s*/, '');
-                const description = lines[1] || '';
-                container.appendChild(createCard(card, title, description));
-            } catch (e) {
-                container.appendChild(createCard(card, card.file, ''));
-            }
-        }
-    }
-    loadCards();
+    document.addEventListener('DOMContentLoaded', () => {
+        Domain2.renderIndexPage();
+    });
     </script>
 </body>
 </html>
