@@ -19,6 +19,11 @@
 
     let cardCatalogPromise = null;
 
+    const SYMBOL_ORDER_BY_IMAGE = SYMBOLS.reduce((lookup, symbol, index) => {
+        lookup[symbol.image] = index;
+        return lookup;
+    }, {});
+
     function escapeHtml(value) {
         return String(value)
             .replace(/&/g, '&amp;')
@@ -55,11 +60,31 @@
             .map((part) => part.trim())
             .filter(Boolean);
 
+        const symbolKey = deriveExclusiveSymbolKey(images);
+
         return {
             file: `meditation_${code.replace(/\./g, '_')}`,
             images,
+            symbolKey,
             page: PAGE_SEQUENCE[index % PAGE_SEQUENCE.length]
         };
+    }
+
+    function deriveExclusiveSymbolKey(images) {
+        let chosen = SYMBOLS[0];
+
+        for (const image of images) {
+            const order = SYMBOL_ORDER_BY_IMAGE[image];
+            if (order === undefined) {
+                continue;
+            }
+
+            if (order > SYMBOL_ORDER_BY_IMAGE[chosen.image]) {
+                chosen = SYMBOLS[order];
+            }
+        }
+
+        return chosen.key;
     }
 
     async function loadCardCatalog() {
@@ -182,7 +207,7 @@
 
     async function renderMarkdownPage(options = {}) {
         const menu = document.getElementById(options.menuId || 'site-nav');
-        renderTopMenu(menu, symbol.key === 'point' ? 'point' : null);
+        renderTopMenu(menu, 'point');
 
         const params = new URLSearchParams(window.location.search);
         const contentName = params.get('content') || options.defaultContent;
@@ -239,7 +264,7 @@
         }
 
         const catalog = await loadCardCatalog();
-        const symbolCards = catalog.filter((card) => card.images.includes(symbol.image));
+        const symbolCards = catalog.filter((card) => card.symbolKey === symbol.key);
 
         if (summary) {
             summary.textContent = `Cards for ${symbol.label} (${symbolCards.length})`;
