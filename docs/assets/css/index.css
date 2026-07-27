@@ -95,3 +95,31 @@ body {
     flex-grow: 1;
     white-space: pre-line;
 }
+
+/* App Footer Styles */
+.app-footer {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    background: #0f1424;
+    color: #f3f4f6;
+    text-align: center;
+    border-top: 1px solid rgba(226, 176, 76, 0.4);
+    margin-top: 3rem;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+.app-footer .footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+.app-footer .footer-sub {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-top: 0.3rem;
+}
+.app-footer a {
+    color: #e2b04c;
+    text-decoration: underline;
+}
