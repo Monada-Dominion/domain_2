@@ -19,11 +19,6 @@
 
     let cardCatalogPromise = null;
 
-    const SYMBOL_ORDER_BY_IMAGE = SYMBOLS.reduce((lookup, symbol, index) => {
-        lookup[symbol.image] = index;
-        return lookup;
-    }, {});
-
     function escapeHtml(value) {
         return String(value)
             .replace(/&/g, '&amp;')
@@ -57,7 +52,7 @@
         const code = match[1].trim();
         const images = deriveImagesFromCardCode(code);
 
-        const symbolKey = deriveExclusiveSymbolKey(images);
+        const symbolKey = deriveSymbolKeyFromCardCode(code);
 
         return {
             file: `meditation_${code.replace(/\./g, '_')}`,
@@ -77,21 +72,10 @@
         return imageNumbers.map((number) => `${number}.jpg`);
     }
 
-    function deriveExclusiveSymbolKey(images) {
-        let chosen = SYMBOLS[0];
-
-        for (const image of images) {
-            const order = SYMBOL_ORDER_BY_IMAGE[image];
-            if (order === undefined) {
-                continue;
-            }
-
-            if (order > SYMBOL_ORDER_BY_IMAGE[chosen.image]) {
-                chosen = SYMBOLS[order];
-            }
-        }
-
-        return chosen.key;
+    function deriveSymbolKeyFromCardCode(code) {
+        // The middle number is the section/symbol number: 1 = point, 2 = line, 3 = triangle.
+        const [, section] = code.split('.').map(Number);
+        return SYMBOLS[section - 1]?.key || SYMBOLS[0].key;
     }
 
     async function loadCardCatalog() {
