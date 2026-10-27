@@ -126,7 +126,9 @@
 
     function createCardElement(card, title, description, compact = false) {
         const link = document.createElement('a');
-        link.href = card.page;
+        const destination = new URL(card.page, window.location.href);
+        destination.searchParams.set('content', card.file);
+        link.href = `${destination.pathname}${destination.search}`;
         link.className = compact ? 'card card--compact' : 'card';
 
         const imageMarkup = card.images
