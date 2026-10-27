@@ -49,16 +49,13 @@
     }
 
     function parseCatalogLine(line, index) {
-        const match = line.match(/^([0-9.]+)\s*-\s*(.+)$/);
+        const match = line.match(/^([0-9]+\.[0-9]+\.[0-9]+)(?:\s*-\s*(.*))?$/);
         if (!match) {
             return null;
         }
 
         const code = match[1].trim();
-        const images = match[2]
-            .split(',')
-            .map((part) => part.trim())
-            .filter(Boolean);
+        const images = deriveImagesFromCardCode(code);
 
         const symbolKey = deriveExclusiveSymbolKey(images);
 
@@ -68,6 +65,16 @@
             symbolKey,
             page: PAGE_SEQUENCE[index % PAGE_SEQUENCE.length]
         };
+    }
+
+    function deriveImagesFromCardCode(code) {
+        const imageNumbers = code.split('.');
+        if (imageNumbers.length !== 3 || imageNumbers.some((number) => !/^\d+$/.test(number))) {
+            return [];
+        }
+
+        // Each card-number component points to its matching numbered image.
+        return imageNumbers.map((number) => `${number}.jpg`);
     }
 
     function deriveExclusiveSymbolKey(images) {
